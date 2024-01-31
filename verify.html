@@ -25,23 +25,7 @@
         </div>
         <input type="submit" value="Submit" id="submit">
     </div>
-    </form>
-    <script>
-   const scriptURL = 'https://script.google.com/macros/s/AKfycbwJh9jxF5zsK1ileu6yYQDQzwDMkxaKOup1heZvGkG5mdJXvY3EU15v7sOgr9Kv4olO/exec'
-        const form = document.forms['Myform']
-      
-        form.addEventListener('submit', e => { 
-         e.preventDefault()
-     let requestBody = new FormData(form)
-     fetch(scriptURL, { method: 'POST', body: requestBody})    
-        .then(() => {  window.location.replace("verify.html"); })
-       .catch(error => {
-       alert('Error!', error.message)
-         submitButton.disabled = false
-
-       }
-       )
-   })
+</form>
     <script src="verify.js"></script>
 </body>
 </html>
